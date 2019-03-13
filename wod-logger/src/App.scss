@@ -1,5 +1,14 @@
+@import './index.scss';
+
 .App {
-    background: #44FFD1;
+    background: $primaryGreen;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    flex-flow: wrap;
+    width: 800px;
+
   
 }
 

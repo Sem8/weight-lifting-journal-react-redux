@@ -22,15 +22,21 @@ class WorkoutPage extends Component {
     return (
       <div>
           <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
-          Add Workout
-        </DropdownToggle>
-        <DropdownMenu>          
-          <DropdownItem>Cardio Exercise(s)</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Weight Lifting</DropdownItem>
-        </DropdownMenu>
+            <DropdownToggle caret>
+              Add Workout
+            </DropdownToggle>
+            <DropdownMenu>          
+              <DropdownItem>Cardio Exercise(s)</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem>Weight Lifting</DropdownItem>
+            </DropdownMenu>
       </ButtonDropdown>
+
+      <span><i className='fas fa-window-close' /></span> {'  '}  
+      <div>
+        </div>    
+      
+      
         
       </div>
     )

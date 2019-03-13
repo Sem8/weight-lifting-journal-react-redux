@@ -1,4 +1,6 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 const rootReducer = combineReducers({
 
@@ -6,7 +8,11 @@ const rootReducer = combineReducers({
 
 const store = createStore(
     rootReducer, 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+		applyMiddleware(thunk),
+		window.__REDUX_DEVTOOLS_EXTENSION__ &&
+			window.__REDUX_DEVTOOLS_EXTENSION__()
+	)
 );
 
 export default store;
