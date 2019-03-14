@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavLink to='/'>Home</NavLink> {' '}
-        <NavLink to='/workout'>Workout</NavLink> {' '}
+        <NavLink to='/workout'>Workout Info.</NavLink> {' '}
         <NavLink to='/cardio'>Add Workout</NavLink>  {' '}
         {/* <NavLink to='/weights'>Weight Lifting only</NavLink> {' '}
         <NavLink to='/cardioweights'>Cardio/Weights</NavLink> {' '}  */}

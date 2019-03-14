@@ -1,10 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import rootReducer from '../reducers/index';
 
-const rootReducer = combineReducers({
-
-})
 
 const store = createStore(
     rootReducer, 

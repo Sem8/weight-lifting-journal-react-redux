@@ -30,7 +30,7 @@ export default class AddExercises extends Component {
   render() {
     return (
       <div className='cardioFormDiv'>
-          <h1>Running/Biking Logger</h1>
+          <h1>Running/Biking</h1>
           <form>
             <input
             type='text'
@@ -52,17 +52,12 @@ export default class AddExercises extends Component {
             value={this.state.workoutDistance}
             onChange={this.handleChanges}
             />
-            <textarea
-            name='workoutNotes'
-            value={this.state.workout.workoutNotes}
-            placeholder='Comments'
-            onChange={this.handleChanges}
-             />
+            
              <button>Add exercise</button>
           </form> 
 
           <div>
-          <h1>Weight lifting only Logger</h1>
+          <h1>Weight lifting only</h1>
             <form>
               <input
               type='text'
@@ -91,17 +86,12 @@ export default class AddExercises extends Component {
               value={this.state.workoutReps}
               onChange={this.handleChanges}
               />
-              <textarea
-              name='workoutNotes'
-              value={this.state.workout.workoutNotes}
-              placeholder='Comments'
-              onChange={this.handleChanges}
-             />
+              
              <button>Add exercise</button>
             </form> 
 
             <div>
-              <h1>Cardio with weights logger</h1>
+              <h1>Cardio with weights</h1>
               <form>
               <input
               type='text'
@@ -130,12 +120,7 @@ export default class AddExercises extends Component {
               value={this.state.workoutReps}
               onChange={this.handleChanges}
               />
-              <textarea
-              name='workoutNotes'
-              value={this.state.workout.workoutNotes}
-              placeholder='Comments'
-              onChange={this.handleChanges}
-             />
+              
              <button>Add exercise</button>
               </form>
               
