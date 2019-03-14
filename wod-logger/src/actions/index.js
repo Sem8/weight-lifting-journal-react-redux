@@ -8,51 +8,37 @@ export const addExercise = exercise => dispatch => {
     dispatch({ type: ADD_EXERCISE_START });
 
     const {
-		currentWeight,
-		maxWeight,
-		workoutDate,
-		workoutName,
-		workoutNotes,
-		workoutReps,
-		workoutSets,
-		workoutSubtype,
-		workoutTime,
-		workoutType,
-		workoutDistance
+		name, 
+		reps, 
+		sets, 
+		weight
 	} = exercise;
 
 	let newExercise = {
-		workout_name: workoutName,
-		workout_date: workoutDate,
-		workout_type: workoutType,
-		workout_subtype: workoutSubtype,
-		workout_reps: parseInt(workoutReps, 10),
-		workout_sets: parseInt(workoutSets, 10),
-		workout_time: parseInt(workoutTime, 10),
-		workout_distance: parseInt(workoutDistance, 10),
-		workout_notes: workoutNotes,
-		body_region: null,
-		max_weight: parseInt(maxWeight, 10),
-		current_weight: parseInt(currentWeight, 10),
-		user_id: 1
+        // journalId,		
+		userId: 1,
+		name,
+		reps,
+		sets,
+		weight
     };
     
     axios
-    .post(`https://weight-lifting-journal.herokuapp.com/api/restricted/journals/`, 
+    .post(`https://weight-lifting-journal.herokuapp.com/api/restricted/exercises`, 
     newExercise,
-    // {
-    //     'Content-Type': 'application/json',
-    //     headers: { authorization: localStorage.getItem('token')}
-    // }
+    {
+        'Content-Type': 'application/json',
+        headers: { authorization: localStorage.getItem('token')}
+    }
     )
     .then(res => {
         console.log(res);
-        dispatch({ type: ADD_EXERCISE_SUCCESS, payload: res.data.journal });
+        dispatch({ type: ADD_EXERCISE_SUCCESS, payload: res.data });
     }).catch(err => {
         // console.log(err);
         dispatch({ 
             type: ADD_EXERCISE_FAIL,
-            payload: err.response.data.message 
+            payload: err.message 
         })
     })
 };
@@ -61,18 +47,18 @@ export const FETCH_EXERCISE_START = 'FETCH_EXERCISE_START';
 export const FETCH_EXERCISE_SUCCESS = 'FETCH_EXERCISE_SUCCESS';
 export const FETCH_EXERCISE_FAIL = 'FETCH_EXERCISE_FAIL';
 
-export const fetchExercises = id => dispatch => {
+export const fetchExercises = () => dispatch => {
     dispatch({ type: FETCH_EXERCISE_START });
     axios
-    .get(`https://weight-lifting-journal.herokuapp.com/api/restricted/exercises/journal/1`,
-    // {
-    //     "Content-Type": "application/json",
-    //     headers: { authorization: localStorage.getItem("token") }
-    // }
+    .get(`https://weight-lifting-journal.herokuapp.com/api/restricted/exercises`,
+    {
+        "Content-Type": "application/json",
+        headers: { authorization: localStorage.getItem("token") }
+    }
     )
     .then(res => {
         dispatch({ type: FETCH_EXERCISE_SUCCESS,
-        payload: res.data.exercise
+        payload: res.data
     });
 
     })
@@ -83,8 +69,6 @@ export const fetchExercises = id => dispatch => {
         });
     });
 };
-
-
 
 
 export const DELETE_EXERCISE_START = 'DELETE_EXERCISE_START';

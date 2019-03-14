@@ -6,17 +6,10 @@ import CardioWgtList from "./CardioWgtList";
 class AddExercises extends Component {
   state = {
     workout: {
-      workoutName: "",
-      workoutDate: Date.now().toString(),
-      workoutType: "",
-      workoutSubType: "",
-      workoutSets: "",
-      workoutReps: "",
-      maxWeight: "",
-      currentWeight: "",
-      workoutTime: "",
-      workoutDistance: "",
-      workoutNotes: ""
+      "name": "",
+      "reps": "",
+      "sets": "",
+      "weight": ""                           
     }
   };
 
@@ -119,42 +112,31 @@ class AddExercises extends Component {
           <form onSubmit={this.submitHandler}>
             <input
               type="text"
-              name="workoutName"
-              placeholder="Name your workout"
-              value={this.state.workoutName}
+              name="name"
+              placeholder="Exercise name ex. Squats"
+              value={this.state.name}
               onChange={this.handleChanges}
-            />
-            <input
-              name="workoutTime"
-              placeholder="Workout duration"
-              value={this.state.workoutTime}
-              onChange={this.handleChanges}
-            />
-            <input
-              name="workoutSubType"
-              placeholder="Exercise type ex. Squats"
-              value={this.state.workoutSubType}
-              onChange={this.handleChanges}
-            />
+            />            
+            
             <input
               type="number"
-              name="workoutSets"
+              name="sets"
               placeholder="Sets"
-              value={this.state.workoutSets}
+              value={this.state.sets}
               onChange={this.handleChanges}
             />
             <input
               type="number"
-              name="workoutReps"
+              name="reps"
               placeholder="Reps"
-              value={this.state.workoutReps}
+              value={this.state.reps}
               onChange={this.handleChanges}
             />
             <input
               type="number"
-              name="maxWeight"
+              name="weight"
               placeholder="Weights used (lbs)"
-              value={this.state.maxWeight}
+              value={this.state.weight}
               onChange={this.handleChanges}
             />
 
