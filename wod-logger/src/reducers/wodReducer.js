@@ -13,7 +13,7 @@ const initialState = {
     editingExercise: false
 }
 
-export default (state = initialState, action) => {
+export const wodReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_EXERCISE_START:
             return {
