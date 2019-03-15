@@ -21,7 +21,7 @@ export const addExercise = exercise => dispatch => {
 		name,
 		reps,
 		sets,
-		weight
+		weight: parseInt(weight, 10)
     };
     
     axios
@@ -33,7 +33,7 @@ export const addExercise = exercise => dispatch => {
     }
     )
     .then(res => {
-        console.log(res);
+        console.log(res.data.exercise);
         dispatch({ type: ADD_EXERCISE_SUCCESS, payload: res.data });
     }).catch(err => {
         // console.log(err);

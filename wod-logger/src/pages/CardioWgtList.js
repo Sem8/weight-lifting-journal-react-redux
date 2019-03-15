@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import CardioWgt from './CardioWgt';
 
-import { fetchExercises } from '../actions/'; 
+import { fetchExercises } from '../actions/index'; 
 
 class CardioWgtList extends Component {
     componentDidMount() {
@@ -12,8 +12,8 @@ class CardioWgtList extends Component {
   render() {
     return (
       <div className='cardioWgtListWrapper'>
-      {this.props.exercises.map(exercise => (
-          <CardioWgt key={exercise.userId} exercise={exercise} />
+      {this.props.exercises.map((exercise, index) => (
+          <CardioWgt key={index} exercise={exercise} />
       ))}
       {console.log(this.props.exercises)}        
       </div>
