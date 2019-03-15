@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
 import './App.scss';
+import WodRouter from './WodRouter';
 
-import Router from './Router';
-import {NavLink} from 'react-router-dom';
+import Login from './pages/Login';
+import PrivateRoute from './pages/PrivateRoute';
+
+import {NavLink, BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        <NavLink to='/'>Home</NavLink> {' '}
-        <NavLink to='/workout'>Workout Info.</NavLink> {' '}
-        <NavLink to='/cardio'>Add Workout</NavLink>  {' '}
-        
-        <div>
-          <Router />
+      <Router>
+        <div className="App">
+          <Route path='/login' component={Login} />
+          <PrivateRoute exact path='/protected' component={WodRouter} />        
+          
+            {/* <WodRouter /> */}
 
         </div>
-      
-
-        
-        
-        
-      </div>
+      </Router>      
     );
   }
 }

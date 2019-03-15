@@ -22,7 +22,7 @@ class CardioWgtList extends Component {
 }
 
 const mapStateToProps = state => ({
-    exercises: state.exercises
+    exercises: state.wodReducer.exercises
 });
 
 // const mapStateToProps = ({ exerciseReducer }) => {

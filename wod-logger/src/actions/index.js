@@ -4,6 +4,7 @@ export const ADD_EXERCISE_START = 'ADD_EXERCISE_START';
 export const ADD_EXERCISE_SUCCESS = 'ADD_EXERCISE_SUCCESS';
 export const ADD_EXERCISE_FAIL = 'ADD_EXERCISE_FAIL';
 
+
 export const addExercise = exercise => dispatch => {
     dispatch({ type: ADD_EXERCISE_START });
 
@@ -15,7 +16,7 @@ export const addExercise = exercise => dispatch => {
 	} = exercise;
 
 	let newExercise = {
-        // journalId,		
+        journalId: 1,		
 		userId: 1,
 		name,
 		reps,
@@ -53,7 +54,7 @@ export const fetchExercises = () => dispatch => {
     .get(`https://weight-lifting-journal.herokuapp.com/api/restricted/exercises`,
     {
         "Content-Type": "application/json",
-        headers: { authorization: localStorage.getItem("token") }
+        headers: { authorization: localStorage.getItem('token') }
     }
     )
     .then(res => {
@@ -65,7 +66,8 @@ export const fetchExercises = () => dispatch => {
     .catch(err => {
         dispatch({
             type: FETCH_EXERCISE_FAIL,
-            payload: err.response.data.message
+            // payload: err.response.data.message
+            payload: err
         });
     });
 };
