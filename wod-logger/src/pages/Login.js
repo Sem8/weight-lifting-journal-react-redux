@@ -12,7 +12,7 @@ class Login extends Component {
     };
 
     componentDidMount = () => {
-        if (localStorage.getItem('token')) return this.props.history.push('/protected')
+        if (localStorage.getItem('token')) return this.props.history.push('/')
     };
 
     handleChanges = e => {
@@ -32,9 +32,9 @@ class Login extends Component {
 
   render() {
     return (
-      <div className='loginForm'>
+      <div className='loginDiv'>
        <form onSubmit={this.loginUser}>
-        <label for="username">Account</label>
+        <label>Account</label>
         <input
             type='text'
             name='username'

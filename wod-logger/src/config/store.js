@@ -1,12 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { wodReducer } from '../reducers/wodReducer';
 import authReducer from '../reducers/authReducer';
+import { wodReducer }  from '../reducers/wodReducer';
+
+import wodParentReducer from '../reducers/wodParentReducer';
 
 const rootReducer = combineReducers({
 	wodReducer,
-	authReducer
+	authReducer,
+	wodParentReducer
 })
 
 

@@ -6,7 +6,7 @@ import HomePage from './pages/homepage';
 
 
 
-export class WodRouter extends Component {
+class WodRouter extends Component {
   render() {
     return (
       <div>

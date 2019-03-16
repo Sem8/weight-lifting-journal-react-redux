@@ -1,8 +1,11 @@
 
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE, PERSIST_USER } from '../actions/authActions';
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE, PERSIST_USER,
+    GET_CURRENT_USER_START, GET_CURRENT_USER_SUCCESS, GET_CURRENT_USER_FAILURE
+ } from '../actions/authActions';
 
 const initialState = {
     token: localStorage.getItem('token'),
+    currentUserId: null,
     currentUser: null,
     fetching: false,
     errors: null
@@ -13,8 +16,24 @@ export default (state = initialState, action) => {
         case PERSIST_USER:
             return {
                 ...state,
-                currentUser: action.payload
+                currentUserId: action.payload
             };
+            case GET_CURRENT_USER_START:
+			return {
+				...state
+			};
+
+		case GET_CURRENT_USER_SUCCESS:
+			return {
+				...state,
+				currentUser: action.payload
+			};
+		case GET_CURRENT_USER_FAILURE:
+			return {
+				...state,
+				fetching: false,
+				errors: action.payload
+			};
         case LOGIN_START:
             return {
                 ...state,

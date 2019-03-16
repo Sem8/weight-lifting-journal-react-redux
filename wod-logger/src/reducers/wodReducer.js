@@ -25,7 +25,7 @@ export const wodReducer = (state = initialState, action) => {
         case FETCH_EXERCISE_SUCCESS:
             return {
                 ...state,
-                exercises: [...action.payload],
+                exercises: [...state.exercises ,...action.payload],
                 fetching: false,
                 error: null                
             }
@@ -47,7 +47,7 @@ export const wodReducer = (state = initialState, action) => {
                 ...state,
                 fetching: false,
                 creatingExercise: false,
-                exercises: [...state.exercises, action.payload],
+                exercises: [...state.exercises, ...action.payload],
                 error: null
             };
         case ADD_EXERCISE_FAIL:
@@ -67,7 +67,7 @@ export const wodReducer = (state = initialState, action) => {
         case DELETE_EXERCISE_SUCCESS:
             return {
                 ...state,
-                exercises: [...state.exercises.filter(exercise => exercise.workout_id !== action.payload)],
+                exercises: [...state.exercises.filter(exercise => exercise.id !== action.payload)],
                 fetching: false,
                 deletingExercise: false,
                 error: null
@@ -90,7 +90,7 @@ export const wodReducer = (state = initialState, action) => {
             let editedExercise = [];
             state.exercises.map(exercise => {
                 let newExercise = 
-                exercise.workout_id === action.payload.workout_id ? action.payload : exercise;
+                exercise.id === action.payload.id ? action.payload : exercise;
                 return editedExercise.push(newExercise)
             });
 

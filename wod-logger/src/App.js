@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path='/login' component={Login} />
-          <PrivateRoute exact path='/protected' component={WodRouter} />        
+          <PrivateRoute exact path='/' component={WodRouter} />        
           
             {/* <WodRouter /> */}
 

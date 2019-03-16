@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addExercise } from "../actions";
-import CardioWgtList from "./CardioWgtList";
+// import CardioWgtList from "./CardioWgtList";
 
 class AddExercises extends Component {
   state = {
-    workout: {
+    exercise: {
       "name": "",
       "reps": "",
       "sets": "",
@@ -15,18 +15,32 @@ class AddExercises extends Component {
 
   handleChanges = e => {
     this.setState({
-      workout: {
-        ...this.state.workout,
+      exercise: {
+        ...this.state.exercise,
         [e.target.name]: e.target.value
       }
     });
   };
 
-  submitHandler = e => {
-    e.preventDefault();
-    this.props.addExercise(this.state.workout);
+  handleAddExercise = e => {
+		e.preventDefault();
 
-  }
+		this.props.addExercise(
+			this.state.exercise,
+			this.props.workoutId,
+			this.props.userId
+		);
+
+		this.setState({
+			exercise: {
+				...this.state.exercise,
+				name: "",
+				reps: "",
+				sets: "",
+				weight: ""
+			}
+		});
+	};
 
   render() {
     return (
@@ -34,7 +48,7 @@ class AddExercises extends Component {
 
         <div>
           <h1>Cardio/Cardio with Weights</h1>
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={this.handleAddExercise}>
             <input
               type="text"
               name="name"
@@ -57,26 +71,30 @@ class AddExercises extends Component {
               value={this.state.reps}
               onChange={this.handleChanges}
             />
-            <input
-              type="number"
+            <input              
               name="weight"
               placeholder="Weights used (lbs)"
               value={this.state.weight}
               onChange={this.handleChanges}
             />
 
-            <button onClick={this.submitHandler}>Add exercise</button>
+            <button onClick={this.handleAddExercise}>Add exercise</button>
           </form>
         </div>
-          <section>
+          {/* <section>
             <CardioWgtList />
-          </section>
+          </section> */}
       </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  workoutId: state.wodParentReducer.workoutId,
+  userId: state.authReducer.currentUser
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   { addExercise }
 )(AddExercises);
