@@ -8,10 +8,9 @@ class FormExerciseList extends Component {
 				{this.props.exercises.map(exercise =>
 					exercise.journalId === this.props.journalId ? (
 						<div key={exercise.journalId}>
-							<p>{exercise.name}</p>						
-							
-						</div>
-						
+							<p>{exercise.name}</p>
+											
+						</div>					
 					) : null
 				)}
 			</div>
@@ -21,7 +20,7 @@ class FormExerciseList extends Component {
 
 const mapStateToProps = state => ({
     exercises: state.wodReducer.exercises,
-    journalId: state.wodParentReducer.workoutId  
+    journalId: state.wodParentReducer.workoutId
 });
 
 export default connect(

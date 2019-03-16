@@ -53,7 +53,7 @@ class AddWodParent extends Component {
   render() {
     return (
       <div>
-        <WorkoutModal
+        {/* <WorkoutModal
           isOpen={this.props.toggleModalWorkoutValue}
           onRequestClose={this.handleCloseModal}
           ariaHideApp={false} 
@@ -73,24 +73,25 @@ class AddWodParent extends Component {
                 <button onClick={this.addWorkout}>Add Workout</button>
               </form>
             </div>
-          ) : (
+          ) : ( 
             <AddExercises />
           )}
-        </WorkoutModal>
-        {/* <div>
+        </WorkoutModal> */}
+        <div>
               <h2> Add Workout </h2>
               <form onSubmit={this.addWorkout}>
                 <input
                   type="text"
                   value={this.state.workout.region}
                   name="region"
-                  placeholder="Legs"
+                  placeholder="Body region, exercise type, sets, reps, weight used"
                   onChange={this.handleChanges}
                 />
+                
                 <button onClick={this.addWorkout}>Add Workout</button>
               </form>
-            </div> */}
-        {/* <AddExercises /> */}
+            </div> 
+        <AddExercises />
       </div>
     );
   }

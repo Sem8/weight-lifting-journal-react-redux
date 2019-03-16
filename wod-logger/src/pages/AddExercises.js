@@ -47,7 +47,7 @@ class AddExercises extends Component {
       <div>       
 
         <div>
-          <h1>Cardio/Cardio with Weights</h1>
+          {/* <h1>Cardio/Cardio with Weights</h1>
           <form onSubmit={this.handleAddExercise}>
             <input
               type="text"
@@ -79,7 +79,7 @@ class AddExercises extends Component {
             />
 
             <button onClick={this.handleAddExercise}>Add exercise</button>
-          </form>
+          </form> */}
         </div>
           {/* <section>
             <CardioWgtList />

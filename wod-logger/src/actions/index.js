@@ -25,8 +25,8 @@ export const addExercise = (exercise, journalId, userId) => dispatch => {
 	const { name, reps, sets, weight } = exercise;
 
 	const newExercise = {
-		journalId,
-		userId,
+		journalId: 1,
+		userId: 1,
 		name,
 		reps,
 		sets,
@@ -50,6 +50,7 @@ export const addExercise = (exercise, journalId, userId) => dispatch => {
 			});
 		})
 		.catch(err => {
+			console.log(err.response);
 			dispatch({
 				type: ADD_EXERCISE_FAIL,
 				payload: err.message
@@ -99,14 +100,14 @@ export const updateExercise = (exercise, exerciseId) => dispatch => {
 			}
 		)
 		.then(res => {
-			console.log(res);
+			// console.log(res);
 			dispatch({
 				type: EDIT_EXERCISE_SUCCESS,
 				payload: res.data
 			});
 		})
 		.catch(err => {
-			console.log(err);
+			// console.log(err);
 			dispatch({
 				type: EDIT_EXERCISE_FAIL,
 				payload: err.response.data.message
