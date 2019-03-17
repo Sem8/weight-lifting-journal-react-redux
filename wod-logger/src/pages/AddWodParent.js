@@ -54,9 +54,9 @@ class AddWodParent extends Component {
       <div>
         <div className='addWodParentDiv'>
           <h2> Type in your: </h2>
-          <h4>
-            Body region (ex.Legs), exercise type (ex. Squats), sets (ex. 3),
-            reps (ex. 20), weight used (lbs/kg) if any
+          <h4 className='instructionH4'>
+            <strong>Body Region</strong>, <strong>Exercise Type</strong> (ex. Squats), <strong>Sets</strong> (ex. 3), 
+            <strong> Reps</strong> (ex. 20), <strong> Weight Used</strong> if any (lbs/kg). 
           </h4>
           <form onSubmit={this.addWorkout}>
             <input
