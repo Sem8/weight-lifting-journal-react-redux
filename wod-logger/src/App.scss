@@ -1,7 +1,7 @@
 @import './index.scss';
 
 .App {
-    background: $primaryGreen;
+    // background: $primaryGreen;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -10,9 +10,11 @@
     width: 800px;
   
 };
-// .workoutModal {
-//     width: 100px;
 
-// }
+.homeDiv {
+    color: $textBlue;
+    text-align: center;
+};
+
 
 

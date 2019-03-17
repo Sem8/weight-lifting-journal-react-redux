@@ -23,9 +23,6 @@ class WodParentList extends Component {
   }
 }
 
-// const mapStateToProps = ({ workoutReducer }) => ({
-// 	workouts: workoutReducer.workouts
-// });
 
 const mapStateToProps = ({ wodParentReducer }) => ({
     workouts: wodParentReducer.workouts

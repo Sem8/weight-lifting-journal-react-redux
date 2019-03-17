@@ -1,6 +1,7 @@
 
 $primaryBlue: #87F6FF;
 $primaryGreen: #44FFD1;
+$textBlue: #00ced1;
 
 body {
   margin: 0;
@@ -10,7 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: $primaryBlue;
+  // background: $primaryBlue;
   box-sizing: border-box;
 }
 

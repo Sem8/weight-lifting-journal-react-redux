@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import '../App.scss';
+import "../styles/AddWodParent.scss";
 
 import AddExercises from "./AddExercises";
 import {
@@ -8,8 +8,7 @@ import {
   toggleAddWorkoutForm,
   toggleWorkoutModal
 } from "../actions/wodParentActions";
-import WorkoutModal from "react-modal";
-
+// import WorkoutModal from "react-modal";
 
 class AddWodParent extends Component {
   state = {
@@ -28,19 +27,19 @@ class AddWodParent extends Component {
   };
 
   addWorkout = e => {
-		e.preventDefault();
+    e.preventDefault();
 
-		this.props.addWorkout(this.state.workout, this.props.userId);
+    this.props.addWorkout(this.state.workout, this.props.userId);
 
-		this.props.toggleAddWorkoutForm();
+    this.props.toggleAddWorkoutForm();
 
-		this.setState({
-			workout: {
-				...this.state.workout,
-				region: ""
-			}
-		});
-	};
+    this.setState({
+      workout: {
+        ...this.state.workout,
+        region: ""
+      }
+    });
+  };
 
   handleCloseModal = () => {
     this.props.toggleWorkoutModal();
@@ -53,44 +52,27 @@ class AddWodParent extends Component {
   render() {
     return (
       <div>
-        {/* <WorkoutModal
-          isOpen={this.props.toggleModalWorkoutValue}
-          onRequestClose={this.handleCloseModal}
-          ariaHideApp={false} 
-              
-        >
-          {!this.props.toggleAddExerciseValue ? (
-            <div>
-              <h2> Add Workout </h2>
-              <form onSubmit={this.addWorkout}>
-                <input
-                  type="text"
-                  value={this.state.workout.region}
-                  name="region"
-                  placeholder="Legs"
-                  onChange={this.handleChanges}
-                />
-                <button onClick={this.addWorkout}>Add Workout</button>
-              </form>
-            </div>
-          ) : ( 
-            <AddExercises />
-          )}
-        </WorkoutModal> */}
-        <div>
-              <h2> Add Workout </h2>
-              <form onSubmit={this.addWorkout}>
-                <input
-                  type="text"
-                  value={this.state.workout.region}
-                  name="region"
-                  placeholder="Body region, exercise type, sets, reps, weight used"
-                  onChange={this.handleChanges}
-                />
-                
-                <button onClick={this.addWorkout}>Add Workout</button>
-              </form>
-            </div> 
+        <div className='addWodParentDiv'>
+          <h2> Type in your: </h2>
+          <h4>
+            Body region (ex.Legs), exercise type (ex. Squats), sets (ex. 3),
+            reps (ex. 20), weight used (lbs/kg) if any
+          </h4>
+          <form onSubmit={this.addWorkout}>
+            <input
+              type="text"
+              value={this.state.workout.region}
+              name="region"
+              placeholder="Body region, exercise type, sets, reps, weight used"
+              onChange={this.handleChanges}
+              className='addWodInput'
+            />
+
+            <button onClick={this.addWorkout} className="addWorkoutBtn">
+              Add Workout
+            </button>
+          </form>
+        </div>
         <AddExercises />
       </div>
     );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
+import '../styles/wodParent.scss';
+
 import { deleteWorkout, updateWorkout } from '../actions/wodParentActions';
 // import { fetchExercises } from '../actions/index'; 
 import CardioWgtList from './CardioWgtList';
@@ -50,12 +52,14 @@ class WodParent extends Component {
 
   render() {
     return (
-      <div>
+      <div className='wodParentListItem'>
           {!this.state.isEditing ? (
-              <div>
-              <h1 onClick={this.toggleWorkout}>{this.state.workout.region}</h1>
-              <button onClick={this.handleEdit}>Edit</button>
-              <button onClick={this.deleteWorkout}>Delete</button>
+              <div className='eachWodDiv'>
+              <h2 onClick={this.toggleWorkout}>{this.state.workout.region}</h2>
+              <span onClick={this.deleteWorkout} className='deleteIcon'><i className='fas fa-window-close' /></span>             
+             <span onClick={this.handleEdit} className='editBtn'><i className="far fa-edit"></i></span> 
+             
+              
             </div> 
           ) : (
               <div>
@@ -64,9 +68,10 @@ class WodParent extends Component {
                     name='region'
                     value={this.state.workout.region}
                     onChange={this.handleChanges}
-                   />
-                   <button onClick={this.updateWorkout}>Update</button>
-                   <button onClick={this.handleEdit}>Cancel</button>
+                    className='editWodInput'
+                   />                   
+                   <span onClick={this.updateWorkout} className='updateOkIcon'><i className="fas fa-check"></i></span>
+                   <button onClick={this.handleEdit} className='cancleUpdateBtn'>Cancel</button>
               </div>
           )}
 
