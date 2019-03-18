@@ -1,0 +1,33 @@
+@import '../App.scss';
+
+.addWodParentDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1.5
+};
+.instructionH4 {
+    line-height: 1.6
+}
+
+.addWorkoutBtn {
+    margin: 20px;
+    background: $textBlue;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+};
+
+.addWodInput {
+    padding: 15px;
+    width: 800px;
+    text-align: center;
+    border: 2px solid $textBlue;    
+    font-size: 20px;
+    border-radius: 50px;
+};

@@ -1,0 +1,20 @@
+@import './index.scss';
+
+.App {
+    // background: $primaryGreen;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    flex-flow: wrap;
+    width: 800px;
+  
+};
+
+.homeDiv {
+    color: $textBlue;
+    text-align: center;
+};
+
+
+
